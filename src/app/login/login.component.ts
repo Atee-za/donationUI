@@ -78,6 +78,10 @@ export class LoginComponent implements OnInit{
   register(){
     this.success = '';
     this.error = '';
+    if(!this.regModel.email.match("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")){
+      this.error = "Invalid email format";
+      return;
+    }
     if(this.regModel.password != this.regModel.confirm){
       this.error = "Password does not match";
       return;
